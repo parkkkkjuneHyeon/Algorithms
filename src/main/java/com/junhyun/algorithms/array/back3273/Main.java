@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args)throws IOException {
-        File file = new File("/Users/User/IdeaProjects/algorithms/src/main/java/com/junhyun/algorithms/array/back3273/answer.txt");
+        File file = new File("/Users/User/IdeaProjects/algorithms/src/main/java/com/junhyun/algorithms/array/back3273/question.txt");
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         br.readLine();
