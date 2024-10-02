@@ -10,47 +10,28 @@ public class Main {
         String[] board = br.readLine().split(" ");
         int N = Integer.parseInt(board[0]);
         int M = Integer.parseInt(board[1]);
+        boolean[] width = new boolean[N];
+        boolean[] height = new boolean[M];
         String[][] castle = new String[N][M];
-
         for(int i = 0; i < N; i++)
             castle[i] = br.readLine().split("");
 
-        System.out.println(checkGuard(castle, N, M));
-        br.close();
-    }
-    public static int checkGuard(String[][] castle, int width, int height) {
-        int[] cnt = new int[2];
-        int i = 0;
-        int j = 0;
-        while(i < width) {
-            if(castle[i][j].equals("X")){
-                i++;
-                j = 0;
-                continue;
-            }else if(j == height-1) {
-                cnt[0]++;
-                i++;
-                j = 0;
-                continue;
+        for(int i = 0; i < N; i++) {
+            for(int j = 0; j < M; j++) {
+                if(castle[i][j].equals("X")) {
+                    width[i] = true;
+                    height[j] = true;
+                }
             }
-            j++;
         }
-        i = 0;
-        j = 0;
-        while(i < height) {
-            if(castle[j][i].equals("X")){
-                i++;
-                j = 0;
-                continue;
-            }else if(j == width-1) {
-                cnt[1]++;
-                i++;
-                j = 0;
-                continue;
-            }
-            j++;
-        }
+        int needWidth = 0;
+        int needHeight = 0;
+        for(int i = 0; i < N; i++)
+            if(!width[i]) needWidth++;
+        for(int i = 0; i < M; i++)
+            if(!height[i]) needHeight++;
 
-        return Math.max(cnt[0], cnt[1]);
+        System.out.println(Math.max(needWidth, needHeight));
+        br.close();
     }
 }
