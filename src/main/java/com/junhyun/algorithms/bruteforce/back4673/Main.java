@@ -20,15 +20,16 @@ public class Main {
                 d = num;
             }
             sum += i;
+
             if(sum < isSelfNumArr.length)
                 isSelfNumArr[sum] = true;
+
             i++;
         }
-        for(int j=1; j<isSelfNumArr.length; j++) {
-            if(!isSelfNumArr[j]) {
+        for(int j=1; j<isSelfNumArr.length; j++)
+            if(!isSelfNumArr[j])
                 bw.write(j + "\n");
-            }
-        }
+
         bw.flush();
         bw.close();
     }
